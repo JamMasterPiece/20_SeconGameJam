@@ -9,14 +9,14 @@ public class PlayerInput : MonoBehaviour
 {
     #region References
 
-    private PlayerApp _playerApp;
+    private CommandRecorder _commandRecorder;
 
     [SerializeField] private Player _player;
 
     #endregion
 
 
-    private void Start() => _playerApp = new PlayerApp();
+    private void Start() => _commandRecorder = new CommandRecorder();
 
     void FixedUpdate()
     {
@@ -30,11 +30,9 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Z))
         {
-            _playerApp.UndoCommand();
+            _commandRecorder.UndoCommand();
         }
-
-      
+     
     }
-    
     
 }

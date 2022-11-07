@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerApp
+public class CommandRecorder
 {
 
     #region References
@@ -11,7 +11,7 @@ public class PlayerApp
 
     #endregion
 
-    public PlayerApp() => _commandList = new Stack<ICommand>();
+    public CommandRecorder() => _commandList = new Stack<ICommand>();
 
 
     public void AddCommand(ICommand newCommand)
