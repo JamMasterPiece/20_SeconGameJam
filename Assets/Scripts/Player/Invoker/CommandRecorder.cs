@@ -16,7 +16,7 @@ public class CommandRecorder
 
     public void AddCommand(ICommand newCommand)
     {
-        newCommand.Excecute();
+        newCommand.Execute();
         _commandList.Push(newCommand);
     }
 

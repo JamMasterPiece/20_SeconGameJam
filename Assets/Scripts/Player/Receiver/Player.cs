@@ -19,3 +19,4 @@ public class Player : MonoBehaviour
         transform.Translate(xValue, yValue, 0);
     }
 }
+

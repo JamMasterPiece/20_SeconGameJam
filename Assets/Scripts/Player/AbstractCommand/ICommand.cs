@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface ICommand
 {
-    void Excecute();
+    void Execute();
 
     void Undo();
 }

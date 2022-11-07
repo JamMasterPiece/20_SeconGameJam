@@ -28,10 +28,10 @@ public class MovementCommand : ICommand
         _yValue = Input.GetAxis(Vertical);
     }
 
-    public void Excecute() => _player.MovementPlayer(_xValue,_yValue);
+    public void Execute() => _player.MovementPlayer(_xValue,_yValue);
 
     public void Undo()
     {
-
+       
     }
 }

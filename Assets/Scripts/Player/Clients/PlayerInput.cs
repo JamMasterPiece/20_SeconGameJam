@@ -26,7 +26,7 @@ public class PlayerInput : MonoBehaviour
     private void CheckInput()
     {
         ICommand movementCommand = new MovementCommand(_player);
-        movementCommand.Excecute();
+        _commandRecorder.AddCommand(movementCommand);
 
         if (Input.GetKey(KeyCode.Z))
         {
