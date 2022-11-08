@@ -11,7 +11,7 @@ public class PlayerInput : MonoBehaviour
 
     private CommandRecorder _commandRecorder;
 
-    [SerializeField] private Player _player;
+    [SerializeField] private PlayerController _playerController;
 
     #endregion
 
@@ -25,14 +25,20 @@ public class PlayerInput : MonoBehaviour
 
     private void CheckInput()
     {
-        ICommand movementCommand = new MovementCommand(_player);
+        ICommand movementCommand = CommandFactory.GetCommand(nameof(CommandType.MovementCommand), _playerController);
         _commandRecorder.AddCommand(movementCommand);
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            ICommand jumpCommand = CommandFactory.GetCommand(nameof(CommandType.JumpCommand), _playerController);
+            _commandRecorder.AddCommand(jumpCommand);
+        }
 
         if (Input.GetKey(KeyCode.Z))
         {
             _commandRecorder.UndoCommand();
         }
-     
+
     }
-    
+
 }

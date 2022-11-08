@@ -6,29 +6,26 @@ public class MovementCommand : ICommand
 {
     #region References
 
-    private Player _player;
+    private readonly PlayerController _playerController;
 
-    private float _xValue;
+    private readonly float _xValue;
 
-    private float _yValue;
 
     #endregion
 
     #region Strings
 
     private const string Horizontal = "Horizontal";
-    private const string Vertical = "Vertical";
-
+    
     #endregion
 
-    public MovementCommand(Player player)
+    public MovementCommand(PlayerController playerController)
     {
-        _player = player;
+        _playerController = playerController;
         _xValue = Input.GetAxis(Horizontal);
-        _yValue = Input.GetAxis(Vertical);
     }
 
-    public void Execute() => _player.MovementPlayer(_xValue,_yValue);
+    public void Execute() => _playerController.MovementPlayer(_xValue);
 
     public void Undo()
     {
