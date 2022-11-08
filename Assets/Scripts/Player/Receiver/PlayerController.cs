@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,8 +16,17 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Determine how forcefully you will jump.")]
     [SerializeField] [Range(2, 10)] private int _jumpPower;
 
+
+
     #endregion
 
+    #region References
+
+    private CollisionHandler _collisionHandler;
+
+    #endregion
+
+    private void Awake() => _collisionHandler = GetComponentInChildren<CollisionHandler>();
 
     public void MovementPlayer(float xValue)
     {
@@ -26,9 +36,12 @@ public class PlayerController : MonoBehaviour
 
     public void JumpPlayer()
     {
-        _rigidbody2D.velocity = Vector2.zero; ;
-        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x,_jumpPower);
-        
+        if (_collisionHandler.IsGrounded())
+        {
+            _rigidbody2D.velocity = Vector2.zero;
+            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _jumpPower);
+        }
     }
+
 }
 
