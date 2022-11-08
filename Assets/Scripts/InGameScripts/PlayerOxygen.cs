@@ -22,8 +22,7 @@ public class PlayerOxygen : MonoBehaviour
 
     void Update()
     {
-      
-       ReduceHealth();
+        ReduceHealth();
     }
 
     private void ReduceHealth()
