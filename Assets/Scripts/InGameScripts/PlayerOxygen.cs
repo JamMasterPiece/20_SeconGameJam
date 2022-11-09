@@ -23,14 +23,22 @@ public class PlayerOxygen : MonoBehaviour
     void Update()
     {
         ReduceHealth();
+        CheckTotalOxygen();
     }
 
     private void ReduceHealth()
     {
-        if (_totalOxygen > 0)
+        if (_totalOxygen > 0) _totalOxygen -= Time.deltaTime;
+
+    }
+
+    private void CheckTotalOxygen()
+    {
+        if (!(_totalOxygen > 0))
         {
-            _totalOxygen -= Time.deltaTime;
+            GameManager.Instance.GameOver();
         }
     }
+
 
 }

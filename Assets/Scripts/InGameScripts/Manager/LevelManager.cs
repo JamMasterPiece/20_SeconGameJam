@@ -12,6 +12,11 @@ public class LevelManager : MonoSingleton<LevelManager>
 
     #endregion
 
+    #region Serialize
+
+
+    #endregion
+
 
     private void Awake() => _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
@@ -22,5 +27,6 @@ public class LevelManager : MonoSingleton<LevelManager>
         var sceneCount = SceneManager.sceneCountInBuildSettings;
         if (_currentSceneIndex + 1 >= sceneCount) return;
         SceneManager.LoadScene(_currentSceneIndex + 1);
+      
     }
 }

@@ -12,7 +12,7 @@ public class CollisionHandler : MonoBehaviour
 
     private const string _groundTag = "Ground";
     private const string _enemyTag = "Enemy";
-
+    private const string _finishTag = "Finish";
 
     #endregion
 
@@ -35,6 +35,10 @@ public class CollisionHandler : MonoBehaviour
         {
             OnDamageable?.Invoke();
         }
+        else if (collision.gameObject.CompareTag(_finishTag))
+        {
+            LevelManager.Instance.NextLevel();
+        }
     }
     void OnCollisionExit2D(Collision2D collision)
     {
@@ -44,5 +48,5 @@ public class CollisionHandler : MonoBehaviour
         }
     }
 
-    public  bool IsGrounded() => _isGround;
+    public bool IsGrounded() => _isGround;
 }
