@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class MovementCommand : ICommand
 {
@@ -25,7 +26,11 @@ public class MovementCommand : ICommand
         _xValue = Input.GetAxis(Horizontal);
     }
 
-    public void Execute() => _playerController.MovementPlayer(_xValue);
+    public void Execute()
+    {
+        _playerController.MovementPlayer(_xValue);
+        _playerController.FlipPlayer(_xValue);
+    }
 
     public void Undo()
     {

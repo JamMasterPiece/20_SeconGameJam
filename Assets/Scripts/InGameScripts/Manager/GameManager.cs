@@ -11,15 +11,11 @@ public class GameManager : MonoSingleton<GameManager>
 
     }
 
-    
     public void GameOver()
     {
-        // To DO : gameover screen in UI manager.
+      print("Failed");
         LevelManager.Instance.ReloadLevel();
     }
 
-    public void GameFinish()
-    {
-
-    }
+    public void GameFinish() => LevelManager.Instance.NextLevel();
 }

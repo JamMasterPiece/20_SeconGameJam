@@ -10,9 +10,10 @@ public class CollisionHandler : MonoBehaviour
 
     #region Tags
 
-    private const string _groundTag = "Ground";
-    private const string _enemyTag = "Enemy";
-    private const string _finishTag = "Finish";
+    private const string GroundTag = "Ground";
+    private const string EnemyTag = "Enemy";
+    private const string FinishTag = "Finish";
+  
 
     #endregion
 
@@ -21,28 +22,29 @@ public class CollisionHandler : MonoBehaviour
     private bool _isGround;
 
     public static event Action OnDamageable;
+   
 
     #endregion
 
-
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag(_groundTag))
+        if (collision.gameObject.CompareTag(GroundTag))
         {
             _isGround = true;
         }
-        else if (collision.gameObject.CompareTag(_enemyTag))
+        else if (collision.gameObject.CompareTag(EnemyTag))
         {
             OnDamageable?.Invoke();
         }
-        else if (collision.gameObject.CompareTag(_finishTag))
+        else if (collision.gameObject.CompareTag(FinishTag))
         {
-            LevelManager.Instance.NextLevel();
+            GameManager.Instance.GameFinish();
         }
+       
     }
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag(_groundTag))
+        if (collision.gameObject.CompareTag(GroundTag))
         {
             _isGround = false;
         }

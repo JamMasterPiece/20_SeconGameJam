@@ -16,7 +16,11 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Determine how forcefully you will jump.")]
     [SerializeField] [Range(2, 10)] private int _jumpPower;
 
+    [Header("FlipSettings")]
+    [SerializeField]
+    private SpriteRenderer _characterSprite;
 
+    [SerializeField] private SpriteRenderer _ufoSprite;
 
     #endregion
 
@@ -49,6 +53,20 @@ public class PlayerController : MonoBehaviour
         else
         {
             _isJump = false;
+        }
+    }
+
+    public void FlipPlayer(float xValue)
+    {
+        if ((xValue > 0))
+        {
+            _characterSprite.flipX = false;
+            _ufoSprite.flipX = false;
+        }
+        else if ((xValue < 0))
+        {
+            _characterSprite.flipX = true;
+            _ufoSprite.flipX = true;
         }
     }
 }
