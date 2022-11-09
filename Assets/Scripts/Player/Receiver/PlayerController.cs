@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
 
     private CollisionHandler _collisionHandler;
 
+    private bool _isJump = false;
+
     #endregion
 
     private void Awake() => _collisionHandler = GetComponentInChildren<CollisionHandler>();
@@ -38,10 +40,16 @@ public class PlayerController : MonoBehaviour
     {
         if (_collisionHandler.IsGrounded())
         {
+            if (_isJump) return;
+
+            _isJump = true;
             _rigidbody2D.velocity = Vector2.zero;
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _jumpPower);
         }
+        else
+        {
+            _isJump = false;
+        }
     }
-
 }
 
