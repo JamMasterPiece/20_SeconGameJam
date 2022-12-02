@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Globalization;
-using TMPro.EditorUtilities;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
@@ -14,7 +9,6 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private PlayerController _playerController;
 
     #endregion
-
 
     private void Start() => _commandRecorder = new CommandRecorder();
 
