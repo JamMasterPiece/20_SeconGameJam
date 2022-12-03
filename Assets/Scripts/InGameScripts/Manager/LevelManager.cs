@@ -2,18 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class LevelManager : MonoSingleton<LevelManager>
 {
-
     #region References
 
     private int _currentSceneIndex;
 
-
     #endregion
 
     #region Serialize
-
 
     #endregion
 
@@ -27,6 +25,7 @@ public class LevelManager : MonoSingleton<LevelManager>
         var sceneCount = SceneManager.sceneCountInBuildSettings;
         if (_currentSceneIndex + 1 >= sceneCount) return;
         SceneManager.LoadScene(_currentSceneIndex + 1);
-      
     }
+
+    public void StartNewGame() => SceneManager.LoadScene(1);
 }
