@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -36,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     public void MovementPlayer(float xValue)
     {
+        //
         xValue = xValue * _playerSpeed * Time.deltaTime;
         transform.Translate(xValue, 0, 0);
     }
