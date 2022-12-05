@@ -66,6 +66,7 @@ MonoBehaviour:
   _jumpPower: 10
   _characterSprite: {fileID: 4639965272805670638}
   _ufoSprite: {fileID: 4639965272139021302}
+  _animator: {fileID: 4639965272805670636}
 --- !u!114 &4639965271098229926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +79,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb2d5c82340971419348d2fab89867f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalOxygen: 100
+  _totalOxygen: 20
+  akciger: {fileID: 0}
 --- !u!114 &4639965271098229925
 MonoBehaviour:
   m_ObjectHideFlags: 0

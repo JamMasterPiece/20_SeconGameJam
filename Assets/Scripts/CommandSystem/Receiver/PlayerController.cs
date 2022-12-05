@@ -4,20 +4,21 @@ public class PlayerController : MonoBehaviour
 {
     #region Serialize
 
-    [Tooltip("You can set the speed of your player  as you want.")]
-    [SerializeField] [Range(2, 20)] private int _playerSpeed;
+    [Tooltip("You can set the speed of your player  as you want.")] [SerializeField] [Range(2, 20)]
+    private int _playerSpeed;
 
 
     [SerializeField] private Rigidbody2D _rigidbody2D;
 
-    [Tooltip("Determine how forcefully you will jump.")]
-    [SerializeField] [Range(2, 10)] private int _jumpPower;
+    [Tooltip("Determine how forcefully you will jump.")] [SerializeField] [Range(2, 10)]
+    private int _jumpPower;
 
-    [Header("FlipSettings")]
-    [SerializeField]
+    [Header("FlipSettings")] [SerializeField]
     private SpriteRenderer _characterSprite;
 
     [SerializeField] private SpriteRenderer _ufoSprite;
+
+    [SerializeField] private Animator _animator;
 
     #endregion
 
@@ -33,7 +34,15 @@ public class PlayerController : MonoBehaviour
 
     public void MovementPlayer(float xValue)
     {
-        //
+        if (xValue == 0)
+        {
+            _animator.SetBool("Walk", false);
+        }
+        else
+        {
+            _animator.SetBool("Walk", true);
+        }
+
         xValue = xValue * _playerSpeed * Time.deltaTime;
         transform.Translate(xValue, 0, 0);
     }
@@ -68,4 +77,3 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
-

@@ -1,23 +1,20 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerOxygen : MonoBehaviour
 {
-
     #region Serialize
 
-    [Tooltip("You can set custom player health")]
-    [SerializeField] private float _totalOxygen = 20f;
+    [Tooltip("You can set custom player health")] [SerializeField]
+    private float _totalOxygen = 20f;
 
-    public float TotalOxygen 
+    public float TotalOxygen
     {
         get => _totalOxygen;
         set => _totalOxygen = value;
     }
 
+    [SerializeField] private Image akciger;
     #endregion
 
     void Update()
@@ -28,8 +25,11 @@ public class PlayerOxygen : MonoBehaviour
 
     private void ReduceHealth()
     {
-        if (_totalOxygen > 0) _totalOxygen -= Time.deltaTime;
-
+        if (_totalOxygen > 0)
+        {
+            _totalOxygen -= Time.deltaTime;
+            akciger.fillAmount -= Time.deltaTime*0.05f;
+        }
     }
 
     private void CheckTotalOxygen()
@@ -39,6 +39,4 @@ public class PlayerOxygen : MonoBehaviour
             GameManager.Instance.GameOver();
         }
     }
-
-
 }
