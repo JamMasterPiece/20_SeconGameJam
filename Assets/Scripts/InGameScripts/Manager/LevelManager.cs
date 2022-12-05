@@ -27,5 +27,5 @@ public class LevelManager : MonoSingleton<LevelManager>
         SceneManager.LoadScene(_currentSceneIndex + 1);
     }
 
-    public void StartNewGame() => SceneManager.LoadScene(1);
+    public void StartNewGame() => SceneManager.LoadScene(0);
 }
